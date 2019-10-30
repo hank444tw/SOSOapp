@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eZTravel APP</title>
+    
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+
+    <style>
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:active {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+    <style>
+      .imgList > img {
+        max-width: 100%;
+        width    : 100%;
+        height   : auto;
+        padding-bottom: -10px;
+      }
+    </style>
+</head>
+<body>
+    
+    <div is="page" id="home" data-role="page">
+        
+        <div data-role="panel" id="leftpanel" data-position="left" data-display="overlay" data-theme="b">
+            <h3>選單</h3>
+
+            <div>
+                <a href="#popupLogin" data-rel="popup" data-position-to="window" class="btnNeedClose ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-user ui-btn-icon-left ui-btn-a" data-transition="pop">登入</a>
+                <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+                    <form>
+                        <div style="padding:10px 20px;">
+                            <h3 style="text-align: center;">請登入</h3>
+                            <label for="un" class="ui-hidden-accessible">帳號</label>
+                            <input type="text" name="user" id="un" value="" placeholder="username" data-theme="a">
+                            <label for="pw" class="ui-hidden-accessible">密碼</label>
+                            <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a">
+                            <a href="#demo-links" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">登入</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a href="#popupSetup" data-rel="popup" data-position-to="window" class="btnNeedClose ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a" data-transition="pop">設定</a>
+                <div data-role="popup" id="popupSetup" data-theme="a" class="ui-corner-all">
+                    <form>
+                        <div style="padding:10px 20px;">
+                            <h3 style="text-align: center;">APP設定</h3>
+                            <label for="slider-flip-m">接收通知</label>
+                            <select name="slider-flip-m" id="slider-flip-m" data-role="slider" data-mini="true">
+                                <option value="off">否</option>
+                                <option value="on" selected="">是</option>
+                            </select>
+                            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                            <legend>字體大小</legend>
+                                <input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
+                                <label for="radio-choice-c">小</label>
+                                <input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
+                                <label for="radio-choice-d">中</label>
+                                <input type="radio" name="radio-choice-b" id="radio-choice-e" value="gallery">
+                                <label for="radio-choice-e">大</label>
+                            </fieldset>
+                            <a href="#demo-links" data-rel="close" style="margin-top:5px" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">確定</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+           
+            <a href="#demo-links" id="btnClose" data-rel="close" style="display:none;" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-user ui-btn-icon-left ui-btn-inline">close</a>
+        </div>
+
+        <div data-role="header" data-position="fixed" style="background:-webkit-linear-gradient(rgb(230, 185, 88));">
+            <h3 style="color:gray;text-align:center;">SOSO粉絲集散地</h3>
+            <a href="#leftpanel" class="ui-btn ui-btn-icon-left ui-btn-icon-left ui-icon-bars ui-btn-icon-notext ui-corner-all" style="margin-left:5px;margin-top:3px;"></a>
+        </div>
+
+        <div id="slideshow">
+            <div class="imgList" style="text-align: center;">
+                <img src="carousel1.jpg" alt="carousel1" id="image0" />
+                <img src="carousel2.jpg" alt="carousel2" id="image1" />
+                <img src="carousel3.jpg" alt="carousel3" id="image2" />
+                <img src="carousel4.jpg" alt="carousel4" id="image4" />
+            </div>
+
+            <div style="text-align: center;margin-bottom:-30px;margin-top: -8px">
+                <div class="ui-alt-icon">
+                    <a href="javascript:;" id="prev" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Delete</a>
+                    <a href="javascript:;" id="next" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline">Plus</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;" role="main" class="ui-content">
+            <div is="grid" class="ui-grid-b" style="height:130px">
+                <div class="ui-block-a" style="height:100%;text-align:center">
+                    <a href="photoList.html" rel="external">
+                        <img  src="icon1.jpg" style="width:70px; margin:0 15px 0 12px">
+                        <h5  style="text-align:center; margin-top:-5px;">SOSO照片集</h5>
+                    </a>
+                </div>
+                 <div class="ui-block-b" style="height:100%;text-align:center">
+                    <a href="food.html" rel="external">
+                        <img  src="food.png" style="width:60px; margin:5px 15px 5px 18px">
+                        <h5  style="text-align:center; margin-top:-5px;">飼料簡介</h5>
+                    </a>
+                </div>
+                <div class="ui-block-c" style="height:100%;text-align:center">
+                    <a href="local.html" rel="external">
+                        <img  src="location_pin.png" style="width:70px; margin-left:12px;">
+                        <h5  style="text-align:center; margin-top:-5px;margin-left:15px;">所在地點</h5>
+                    </a>
+                </div>
+            </div>
+            <div is="grid" class="ui-grid-b" style="height:90px">
+                <div class="ui-block-a" style="height:100%;text-align:center">
+                    <a href="house.html" rel="external">
+                        <img  src="house.png" style="width:70px; margin:0 15px 0 12px">
+                        <h5  style="text-align:center; margin-top:-5px;">SOSO到你家</h5>
+                    </a>
+                </div>
+                <div class="ui-block-b" style="height:100%;text-align:center">
+                    <a href="contact.html" rel="external">
+                        <img  src="phone.png" style="width:60px; margin:5px 15px 5px 18px">
+                        <h5  style="text-align:center; margin-top:-5px;">聯絡我們</h5>
+                    </a>
+                </div>
+                <div class="ui-block-c" style="height:100%;text-align:center">
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer" style="display:flex;align-items:center;justify-content:center;background-color:#E9E9E9;">
+            <h5 style="color: gray;">©虎科神帥阿融製作</h5>
+        </div>
+    </div>
+    
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+            let nowimg = 0;
+            let totalimg = $(".imgList img").length - 1;
+
+            function changeImg(){
+                $(".imgList img").each(function(index,img){
+                    if(index == nowimg){
+                        $(img).fadeIn();
+                    }
+                    else{
+                        $(img).hide();
+                    }
+                })
+            }
+
+            $("#next").click(()=>{
+                if(nowimg == totalimg){
+                    nowimg = 0;
+                }
+                else{
+                    nowimg++;
+                }
+                changeImg();
+            })
+
+            $("#prev").click(()=>{
+                if(nowimg == 0){
+                    nowimg = totalimg;
+                }
+                else{
+                    nowimg--;
+                }
+                changeImg();
+            })
+            
+            changeImg();
+    </script>
+
+    <script>
+        $(".btnNeedClose").click(()=>{
+            $("#btnClose").click();
+        });
+    </script>
+
+</body>
+</html>

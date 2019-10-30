@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    
+    <div is="page" id="home" data-role="page" style="background:wheat">
+
+        <div is="header" data-role="header" data-position="fixed" data-theme="b">
+            <h3>聯絡我們</h3>
+            <a class="ui-btn ui-btn-left  ui-btn-icon-left ui-icon-home ui-btn-icon-notext ui-corner-all" data-transition="slide" href="index.html" rel="external">Back</a>
+        </div>
+
+        <div is="content" role="main" class="ui-content">
+            <label for="text-basic">請輸入你的聯絡信箱</label>
+            <input type="text" name="text-basic" id="text-basic" value="">
+
+            <label for="textarea">想對我們說的話</label>
+            <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+
+            <fieldset data-role="controlgroup">
+                <legend class="ui-hidden-accessible">是否同意寄送優惠信件</legend>
+                <label for="checkbox-4">是否同意寄送優惠信件</label>
+                <input type="checkbox" name="checkbox-4" id="checkbox-4">
+            </fieldset>
+
+            <a href="#popupBasic" id="btn" class="ui-btn ui-shadow" data-rel="popup" data-position-to="window" style="margin-top: 200px">寄送</a>
+            <div data-role="popup" id="popupBasic" data-transition="slide">
+                <p>請靜待回覆</p>
+            </div>
+        </div>
+    </div>    
+    
+</body>
+</html>
