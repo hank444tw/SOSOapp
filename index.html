@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>eZTravel APP</title>
+    <title>SOSO粉絲集散地</title>
     
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 
@@ -30,6 +30,7 @@
         }
     </style>
 
+    <!--------輪播CSS-------->
     <style>
       .imgList > img {
         max-width: 100%;
@@ -43,6 +44,7 @@
     
     <div is="page" id="home" data-role="page">
         
+        <!---------------左側滑動選單--------------->
         <div data-role="panel" id="leftpanel" data-position="left" data-display="overlay" data-theme="b">
             <h3>選單</h3>
 
@@ -90,28 +92,34 @@
            
             <a href="#demo-links" id="btnClose" data-rel="close" style="display:none;" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-user ui-btn-icon-left ui-btn-inline">close</a>
         </div>
+        <!---------------左側滑動選單 End--------------->
 
+        <!------------------header------------------->
         <div data-role="header" data-position="fixed" style="background:-webkit-linear-gradient(rgb(230, 185, 88));">
             <h3 style="color:gray;text-align:center;">SOSO粉絲集散地</h3>
             <a href="#leftpanel" class="ui-btn ui-btn-icon-left ui-btn-icon-left ui-icon-bars ui-btn-icon-notext ui-corner-all" style="margin-left:5px;margin-top:3px;"></a>
         </div>
+        <!------------------header End------------------->
 
+        <!----------------輪播------------------>
         <div id="slideshow">
             <div class="imgList" style="text-align: center;">
-                <img src="carousel1.jpg" alt="carousel1" id="image0" />
-                <img src="carousel2.jpg" alt="carousel2" id="image1" />
-                <img src="carousel3.jpg" alt="carousel3" id="image2" />
-                <img src="carousel4.jpg" alt="carousel4" id="image4" />
+                <img src="carousel1.jpg" alt="carousel1" />
+                <img src="carousel2.jpg" alt="carousel2" />
+                <img src="carousel3.jpg" alt="carousel3" />
+                <img src="carousel4.jpg" alt="carousel4" />
             </div>
 
             <div style="text-align: center;margin-bottom:-30px;margin-top: -8px">
                 <div class="ui-alt-icon">
-                    <a href="javascript:;" id="prev" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Delete</a>
-                    <a href="javascript:;" id="next" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline">Plus</a>
+                    <a href="javascript:;" id="prev" onclick="btnNextPrev(-1)" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Delete</a>
+                    <a href="javascript:;" id="next" onclick="btnNextPrev(1)" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-inline">Plus</a>
                 </div>
             </div>
         </div>
+        <!----------------輪播 End------------------>
 
+        <!----------------功能選單------------------->
         <div style="margin-top: 30px;" role="main" class="ui-content">
             <div is="grid" class="ui-grid-b" style="height:130px">
                 <div class="ui-block-a" style="height:100%;text-align:center">
@@ -150,52 +158,64 @@
                 </div>
             </div>
         </div>
+        <!----------------功能選單 End------------------->
         
+        <!-----------footer------------>
         <div id="footer" style="display:flex;align-items:center;justify-content:center;background-color:#E9E9E9;">
             <h5 style="color: gray;">©虎科神帥阿融製作</h5>
         </div>
+        <!-----------footer End------------>
+
     </div>
     
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-------輪播JS------->
     <script>
-            let nowimg = 0;
-            let totalimg = $(".imgList img").length - 1;
+        let nowimg = 0;
+        let totalimg = $(".imgList img").length;
 
-            function changeImg(){
-                $(".imgList img").each(function(index,img){
-                    if(index == nowimg){
-                        $(img).fadeIn();
-                    }
-                    else{
-                        $(img).hide();
-                    }
-                })
+        function changeImg(){
+            $(".imgList img").each(function(index,img){
+                if(index == nowimg){
+                    $(img).fadeIn();
+                }
+                else{
+                    $(img).hide();
+                }
+            })
+        }
+
+        function btnNextPrev(x){
+            nowimg = (nowimg + x + totalimg) % totalimg;
+            changeImg(); 
+        };
+
+        /*$("#next").click(()=>{
+            if(nowimg == totalimg){
+                nowimg = 0;
             }
-
-            $("#next").click(()=>{
-                if(nowimg == totalimg){
-                    nowimg = 0;
-                }
-                else{
-                    nowimg++;
-                }
-                changeImg();
-            })
-
-            $("#prev").click(()=>{
-                if(nowimg == 0){
-                    nowimg = totalimg;
-                }
-                else{
-                    nowimg--;
-                }
-                changeImg();
-            })
-            
+            else{
+                nowimg++;
+            }
             changeImg();
+        })
+
+        $("#prev").click(()=>{
+            if(nowimg == 0){
+                nowimg = totalimg;
+            }
+            else{
+                nowimg--;
+            }
+            changeImg();
+        })*/
+        
+        changeImg();
     </script>
 
+    <!-----取消左側滑動選單JS---->
     <script>
         $(".btnNeedClose").click(()=>{
             $("#btnClose").click();
