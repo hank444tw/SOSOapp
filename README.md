@@ -1,6 +1,9 @@
 # SOSOapp
 > _碩一上友鋒課_期中作業_   
- 
+
+* 開發工具
+  1. Visual Studio Code
+
 * 使用技術
   1. HTML
   2. javascript
